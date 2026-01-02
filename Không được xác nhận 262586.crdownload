@@ -1,0 +1,1491 @@
+{
+  "slabDesign": {
+    "twoWaySlabMomentCoefficients": {
+      "standard": "TCVN 5574:2018",
+      "tableReference": "Bảng E.1 - Phụ lục E",
+      "description": "Hệ số moment cho sàn hai phương",
+      "coefficients": {
+        "interiorPanel": {
+          "Ly_Lx_1_0": {
+            "mx_negative": 0.031,
+            "mx_positive": 0.024,
+            "my_negative": 0.031,
+            "my_positive": 0.024
+          },
+          "Ly_Lx_1_1": {
+            "mx_negative": 0.037,
+            "mx_positive": 0.028,
+            "my_negative": 0.037,
+            "my_positive": 0.028
+          },
+          "Ly_Lx_1_25": {
+            "mx_negative": 0.044,
+            "mx_positive": 0.034,
+            "my_negative": 0.024,
+            "my_positive": 0.019
+          },
+          "Ly_Lx_1_5": {
+            "mx_negative": 0.053,
+            "mx_positive": 0.040,
+            "my_negative": 0.018,
+            "my_positive": 0.014
+          },
+          "Ly_Lx_1_75": {
+            "mx_negative": 0.061,
+            "mx_positive": 0.045,
+            "my_negative": 0.014,
+            "my_positive": 0.010
+          },
+          "Ly_Lx_2_0": {
+            "mx_negative": 0.069,
+            "mx_positive": 0.050,
+            "my_negative": 0.011,
+            "my_positive": 0.008
+          }
+        },
+        "edgePanel": {
+          "oneEdgeContinuous": {
+            "Ly_Lx_1_0": {
+              "mx_negative": 0.041,
+              "mx_positive": 0.031,
+              "my_negative": 0.041,
+              "my_positive": 0.031
+            },
+            "Ly_Lx_1_5": {
+              "mx_negative": 0.065,
+              "mx_positive": 0.049,
+              "my_negative": 0.023,
+              "my_positive": 0.017
+            },
+            "Ly_Lx_2_0": {
+              "mx_negative": 0.085,
+              "mx_positive": 0.062,
+              "my_negative": 0.014,
+              "my_positive": 0.010
+            }
+          },
+          "twoEdgesContinuous": {
+            "Ly_Lx_1_0": {
+              "mx_negative": 0.049,
+              "mx_positive": 0.037,
+              "my_negative": 0.049,
+              "my_positive": 0.037
+            },
+            "Ly_Lx_1_5": {
+              "mx_negative": 0.076,
+              "mx_positive": 0.057,
+              "my_negative": 0.027,
+              "my_positive": 0.020
+            }
+          }
+        },
+        "cornerPanel": {
+          "Ly_Lx_1_0": {
+            "mx_negative": 0.057,
+            "mx_positive": 0.043,
+            "my_negative": 0.057,
+            "my_positive": 0.043
+          },
+          "Ly_Lx_1_5": {
+            "mx_negative": 0.089,
+            "mx_positive": 0.066,
+            "my_negative": 0.031,
+            "my_positive": 0.023
+          }
+        }
+      },
+      "notes": [
+        "Moment tính theo công thức: M = α × q × Lx²",
+        "Lx là cạnh ngắn, Ly là cạnh dài",
+        "q là tải trọng phân bố đều (kN/m²)",
+        "α là hệ số moment từ bảng"
+      ]
+    },
+    "crackWidthLimits": {
+      "standard": "TCVN 5574:2018 - Điều 8.2.9",
+      "limits": {
+        "normalEnvironment": {
+          "value_mm": 0.3,
+          "description": "Môi trường thường, độ ẩm không quá 75%",
+          "condition": "XC1"
+        },
+        "humidEnvironment": {
+          "value_mm": 0.2,
+          "description": "Môi trường ẩm, tiếp xúc nước thường xuyên",
+          "condition": "XC2, XC3"
+        },
+        "corrosiveEnvironment": {
+          "value_mm": 0.2,
+          "description": "Môi trường có tính ăn mòn, gần biển",
+          "condition": "XS1, XS2"
+        },
+        "waterRetaining": {
+          "value_mm": 0.1,
+          "description": "Công trình chứa nước, yêu cầu chống thấm cao",
+          "condition": "Bể nước, hầm chứa"
+        },
+        "severeCorrosive": {
+          "value_mm": 0.1,
+          "description": "Môi trường ăn mòn nặng, vùng triều",
+          "condition": "XS3, XD3"
+        }
+      },
+      "exposureClasses": {
+        "XC1": "Khô hoặc ẩm thường xuyên",
+        "XC2": "Ướt, ít khi khô",
+        "XC3": "Độ ẩm trung bình",
+        "XS1": "Tiếp xúc không khí biển mà không tiếp xúc muối trực tiếp",
+        "XS2": "Ngâm nước biển thường xuyên",
+        "XS3": "Vùng triều, vùng phun sóng",
+        "XD1": "Độ ẩm trung bình, muối rã đông",
+        "XD2": "Ướt, ít khi khô, muối rã đông",
+        "XD3": "Chu kỳ ướt và khô, muối rã đông"
+      }
+    },
+    "reinforcementDevelopment": {
+      "standard": "TCVN 5574:2018 - Điều 10.3",
+      "basicDevelopmentLength": {
+        "formula": "lb = (φ/4) × (fyd/fbd)",
+        "where": {
+          "φ": "Đường kính cốt thép (mm)",
+          "fyd": "Cường độ tính toán của cốt thép (MPa)",
+          "fbd": "Cường độ dính bám thiết kế (MPa)"
+        },
+        "fbd_values": {
+          "goodBondConditions": {
+            "C16": 1.6,
+            "C20": 2.0,
+            "C25": 2.25,
+            "C30": 2.7,
+            "C35": 3.0,
+            "C40": 3.4,
+            "formula": "fbd = 2.25 × √fck (MPa)"
+          },
+          "poorBondConditions": {
+            "multiplier": 0.7,
+            "description": "Nhân với 0.7 cho điều kiện dính bám kém (cốt thép trên, dầm cao > 600mm)"
+          }
+        }
+      },
+      "anchorageLength": {
+        "formula": "lbd = α1 × α2 × α3 × α4 × α5 × lb",
+        "minimumLength": "lbd,min = max(0.3×lb, 10φ, 100mm)",
+        "modificationFactors": {
+          "α1_shape": {
+            "straight": 1.0,
+            "bentBars": 0.7,
+            "hooked": 0.7,
+            "looped": 0.7
+          },
+          "α2_concrete_cover": {
+            "description": "Hệ số lớp bê tông bảo vệ",
+            "straightBars": "(1 - 0.15(cd - φ)/φ) ≥ 0.7 ≤ 1.0",
+            "where_cd": "Khoảng cách từ mép bê tông đến tâm cốt thép gần nhất"
+          },
+          "α3_confinement": {
+            "unconfined": 1.0,
+            "withTransverseReinforcement": "1 - Kφ",
+            "wellConfined": 0.7,
+            "K_value": "Hệ số phụ thuộc áp lực ngang từ cốt đai"
+          },
+          "α4_position": {
+            "allOtherCases": 1.0,
+            "beamsStraightBarsInTension": 0.7
+          },
+          "α5_pressure": {
+            "tension": 1.0,
+            "compression": 0.7
+          }
+        }
+      },
+      "lapSpliceLength": {
+        "formula": "l0 = α1 × α2 × α3 × α5 × α6 × lb",
+        "minimumLength": "l0,min = max(0.3×α6×lb, 15φ, 200mm)",
+        "α6_percentageLapped": {
+          "lessThan25percent": 1.0,
+          "25_to_33percent": 1.15,
+          "33_to_50percent": 1.4,
+          "moreThan50percent": 1.5
+        },
+        "notes": [
+          "Không nối quá 50% cốt thép tại một mặt cắt",
+          "Chiều dài chồng tối thiểu: 300mm",
+          "Khoảng cách giữa các mối nối: ≥ 0.3 × l0"
+        ]
+      },
+      "commonDiameters": {
+        "φ8": {
+          "lb_C25_mm": 288,
+          "lbd_min_mm": 100
+        },
+        "φ10": {
+          "lb_C25_mm": 360,
+          "lbd_min_mm": 100
+        },
+        "φ12": {
+          "lb_C25_mm": 432,
+          "lbd_min_mm": 120
+        },
+        "φ14": {
+          "lb_C25_mm": 504,
+          "lbd_min_mm": 140
+        },
+        "φ16": {
+          "lb_C25_mm": 576,
+          "lbd_min_mm": 160
+        },
+        "φ18": {
+          "lb_C25_mm": 648,
+          "lbd_min_mm": 180
+        },
+        "φ20": {
+          "lb_C25_mm": 720,
+          "lbd_min_mm": 200
+        },
+        "φ22": {
+          "lb_C25_mm": 792,
+          "lbd_min_mm": 220
+        },
+        "φ25": {
+          "lb_C25_mm": 900,
+          "lbd_min_mm": 250
+        },
+        "note": "Giá trị lb tính cho CB300-V (fyd=260 MPa), bê tông C25"
+      }
+    },
+    "reinforcementSpacing": {
+      "standard": "TCVN 5574:2018 - Điều 9.2",
+      "minimumSpacing": {
+        "betweenBars": {
+          "formula": "smin = max(φ, dg + 5mm, 20mm)",
+          "where": {
+            "φ": "Đường kính cốt thép (mm)",
+            "dg": "Đường kính hạt cốt liệu lớn nhất (mm)"
+          },
+          "typical": "25mm (với dg = 20mm)"
+        },
+        "bundledBars": {
+          "maxBarsPerBundle": 4,
+          "equivalentDiameter": "φn = φ × √n",
+          "spacing": "Tính theo φn"
+        }
+      },
+      "maximumSpacing": {
+        "slabs": {
+          "principalReinforcement": {
+            "formula": "smax = min(2h, 250mm)",
+            "where_h": "Chiều dày sàn (mm)"
+          },
+          "secondaryReinforcement": {
+            "formula": "smax = min(3h, 400mm)"
+          },
+          "crackControl": {
+            "wk_0_3mm": "smax = 300mm",
+            "wk_0_2mm": "smax = 200mm",
+            "wk_0_1mm": "smax = 150mm"
+          }
+        },
+        "beams": {
+          "longitudinalBars": {
+            "tension": "smax = min(200mm, 2b)",
+            "compression": "smax = min(200mm, 2b)"
+          },
+          "stirrups": {
+            "formula": "smax = 0.75d (≤ 300mm)",
+            "where_d": "Chiều cao làm việc (mm)",
+            "nearSupport": "smax = 0.5d (trong vùng 2d từ gối tựa)"
+          }
+        },
+        "columns": {
+          "longitudinalBars": {
+            "minSpacing": "40mm hoặc 1.5φ",
+            "maxSpacing": "Không vượt quá chu vi tiết diện"
+          },
+          "ties": {
+            "formula": "smax = min(15φmin, b, 300mm)",
+            "where": {
+              "φmin": "Đường kính nhỏ nhất cốt dọc (mm)",
+              "b": "Cạnh nhỏ nhất tiết diện (mm)"
+            }
+          }
+        }
+      },
+      "minimumReinforcement": {
+        "slabs": {
+          "principalDirection": "As,min = 0.26 × (fctm/fyk) × b × d ≥ 0.0013 × b × d",
+          "secondaryDirection": "As,min = 0.2 × As,principal"
+        },
+        "beams": {
+          "tension": "As,min = 0.26 × (fctm/fyk) × bt × d ≥ 0.0013 × bt × d"
+        }
+      }
+    }
+  },
+  "geotechnicalEngineering": {
+    "soilInvestigation": {
+      "SPT_data": {
+        "format": {
+          "depth_m": "Độ sâu (m)",
+          "N_value": "Số búa SPT",
+          "soilType": "Loại đất",
+          "description": "Mô tả"
+        },
+        "example": [
+          {
+            "depth_m": 0.0,
+            "N_value": 5,
+            "soilType": "Clay",
+            "description": "Sét pha màu xám vàng"
+          },
+          {
+            "depth_m": 1.5,
+            "N_value": 8,
+            "soilType": "Clay",
+            "description": "Sét pha màu xám"
+          },
+          {
+            "depth_m": 3.0,
+            "N_value": 12,
+            "soilType": "Sandy Clay",
+            "description": "Sét pha cát màu nâu xám"
+          }
+        ],
+        "correlations": {
+          "N_to_phi": {
+            "formula": "φ ≈ √(12N) + 20 (độ)",
+            "N_0_4": {
+              "phi_degrees": "25-30",
+              "density": "Rất xốp"
+            },
+            "N_4_10": {
+              "phi_degrees": "27-32",
+              "density": "Xốp"
+            },
+            "N_10_30": {
+              "phi_degrees": "30-35",
+              "density": "Chặt vừa"
+            },
+            "N_30_50": {
+              "phi_degrees": "35-40",
+              "density": "Chặt"
+            },
+            "N_over_50": {
+              "phi_degrees": "38-43",
+              "density": "Rất chặt"
+            }
+          },
+          "N_to_cohesion": {
+            "clay_consistency": {
+              "N_0_2": {
+                "cu_kPa": "0-12",
+                "consistency": "Rất mềm"
+              },
+              "N_2_4": {
+                "cu_kPa": "12-25",
+                "consistency": "Mềm"
+              },
+              "N_4_8": {
+                "cu_kPa": "25-50",
+                "consistency": "Dẻo cứng"
+              },
+              "N_8_15": {
+                "cu_kPa": "50-100",
+                "consistency": "Cứng"
+              },
+              "N_15_30": {
+                "cu_kPa": "100-200",
+                "consistency": "Rất cứng"
+              },
+              "N_over_30": {
+                "cu_kPa": "over_200",
+                "consistency": "Cứng như đá"
+              }
+            }
+          },
+          "N_to_modulus": {
+            "sand": "E = 500(N+15) kPa",
+            "clay_normallyConsolidated": "E = 250N kPa",
+            "clay_overConsolidated": "E = 500N kPa"
+          }
+        }
+      },
+      "CPT_data": {
+        "format": {
+          "depth_m": "Độ sâu (m)",
+          "qc_MPa": "Sức kháng mũi (MPa)",
+          "fs_kPa": "Ma sát thành (kPa)",
+          "Rf_percent": "Tỷ số ma sát Rf = (fs/qc) × 100%"
+        },
+        "soilClassification": {
+          "Rf_0_1": "Cát hoặc cát pha sỏi",
+          "Rf_1_2": "Cát pha",
+          "Rf_2_3": "Sét pha cát đến cát pha sét",
+          "Rf_3_4": "Sét",
+          "Rf_4_6": "Sét hữu cơ",
+          "Rf_over_6": "Than bùn"
+        },
+        "correlations": {
+          "qc_to_phi": "φ ≈ 17.6 + 11 × log10(qc/pa) (độ)",
+          "qc_to_N": "N ≈ qc(kg/cm²) / 2 đến qc(kg/cm²) / 4"
+        }
+      }
+    },
+    "bearingCapacity": {
+      "standard": "TCVN 10304:2014",
+      "terzaghiFormula": {
+        "ultimate": "qu = c×Nc×sc×dc + q×Nq×sq×dq + 0.5×γ×B×Nγ×sγ×dγ",
+        "allowable": "qa = qu / FS",
+        "where": {
+          "c": "Lực dính kết (kPa)",
+          "q": "Áp lực đất đắp = γ×Df (kPa)",
+          "γ": "Trọng lượng thể tích đất (kN/m³)",
+          "B": "Bề rộng móng (m)",
+          "Df": "Độ sâu chôn móng (m)",
+          "Nc_Nq_Nγ": "Hệ số sức chịu tải",
+          "sc_sq_sγ": "Hệ số hình dạng",
+          "dc_dq_dγ": "Hệ số độ sâu",
+          "FS": "Hệ số an toàn (thường 2.5-3.0)"
+        }
+      },
+      "bearingCapacityFactors": {
+        "phi_0": {
+          "Nc": 5.14,
+          "Nq": 1.0,
+          "Nγ": 0.0
+        },
+        "phi_5": {
+          "Nc": 6.49,
+          "Nq": 1.57,
+          "Nγ": 0.09
+        },
+        "phi_10": {
+          "Nc": 8.35,
+          "Nq": 2.47,
+          "Nγ": 0.47
+        },
+        "phi_15": {
+          "Nc": 10.98,
+          "Nq": 3.94,
+          "Nγ": 1.42
+        },
+        "phi_20": {
+          "Nc": 14.83,
+          "Nq": 6.40,
+          "Nγ": 3.54
+        },
+        "phi_25": {
+          "Nc": 20.72,
+          "Nq": 10.66,
+          "Nγ": 8.11
+        },
+        "phi_30": {
+          "Nc": 30.14,
+          "Nq": 18.40,
+          "Nγ": 18.08
+        },
+        "phi_35": {
+          "Nc": 46.12,
+          "Nq": 33.30,
+          "Nγ": 40.69
+        },
+        "phi_40": {
+          "Nc": 75.31,
+          "Nq": 64.20,
+          "Nγ": 95.41
+        },
+        "phi_45": {
+          "Nc": 133.88,
+          "Nq": 134.88,
+          "Nγ": 240.85
+        }
+      },
+      "shapeFactors": {
+        "strip": {
+          "sc": 1.0,
+          "sq": 1.0,
+          "sγ": 1.0
+        },
+        "rectangular": {
+          "sc": "1 + (B/L) × (Nq/Nc)",
+          "sq": "1 + (B/L) × tan(φ)",
+          "sγ": "1 - 0.4 × (B/L)"
+        },
+        "square": {
+          "sc": "1 + (Nq/Nc)",
+          "sq": "1 + tan(φ)",
+          "sγ": 0.6
+        },
+        "circular": {
+          "sc": "1 + (Nq/Nc)",
+          "sq": "1 + tan(φ)",
+          "sγ": 0.6
+        }
+      },
+      "depthFactors": {
+        "Df_B_less_1": {
+          "dc": "1 + 0.4 × (Df/B)",
+          "dq": "1 + 2×tan(φ)×(1-sin(φ))² × (Df/B)",
+          "dγ": 1.0
+        },
+        "Df_B_greater_1": {
+          "dc": "1 + 0.4 × tan⁻¹(Df/B)",
+          "dq": "1 + 2×tan(φ)×(1-sin(φ))² × tan⁻¹(Df/B)",
+          "dγ": 1.0
+        }
+      },
+      "vietnameseSoilTypes": {
+        "sét_hữu_cơ": {
+          "phi_degrees": "5-15",
+          "c_kPa": "10-30",
+          "γ_kN_m3": "16-18",
+          "qa_typical_kPa": "50-100"
+        },
+        "sét": {
+          "phi_degrees": "15-25",
+          "c_kPa": "20-50",
+          "γ_kN_m3": "18-20",
+          "qa_typical_kPa": "100-200"
+        },
+        "sét_pha": {
+          "phi_degrees": "20-28",
+          "c_kPa": "15-35",
+          "γ_kN_m3": "19-21",
+          "qa_typical_kPa": "150-250"
+        },
+        "cát_pha_sét": {
+          "phi_degrees": "25-32",
+          "c_kPa": "10-25",
+          "γ_kN_m3": "19-21",
+          "qa_typical_kPa": "200-300"
+        },
+        "cát_pha": {
+          "phi_degrees": "28-35",
+          "c_kPa": "5-15",
+          "γ_kN_m3": "18-20",
+          "qa_typical_kPa": "250-400"
+        },
+        "cát": {
+          "phi_degrees": "30-40",
+          "c_kPa": "0-5",
+          "γ_kN_m3": "17-20",
+          "qa_typical_kPa": "300-500"
+        },
+        "cát_sỏi": {
+          "phi_degrees": "35-45",
+          "c_kPa": "0",
+          "γ_kN_m3": "19-22",
+          "qa_typical_kPa": "400-800"
+        }
+      }
+    },
+    "pileFoundation": {
+      "standard": "TCVN 10304:2014",
+      "singlePileCapacity": {
+        "drivenpile": {
+          "ultimate": "Qu = Qp + Qs = qp×Ap + Σ(fs×As)",
+          "where": {
+            "Qp": "Sức chịu tải mũi cọc (kN)",
+            "Qs": "Sức chịu tải ma sát thành (kN)",
+            "qp": "Sức kháng mũi đơn vị (kPa)",
+            "Ap": "Diện tích mũi cọc (m²)",
+            "fs": "Ma sát thành đơn vị (kPa)",
+            "As": "Diện tích thành cọc (m²)"
+          }
+        },
+        "boredPile": {
+          "ultimate": "Qu = Qp + Qs = qp×Ap + Σ(fs×As)",
+          "reductionFactor": "Áp dụng hệ số giảm 0.6-0.8 so với cọc đóng"
+        },
+        "allowable": "Qa = Qu / FS",
+        "safetyFactor": {
+          "static_load": "FS = 2.5",
+          "dynamic_load": "FS = 2.0",
+          "seismic": "FS = 1.75"
+        }
+      },
+      "pileGroupEfficiency": {
+        "formula_Converse_Labarre": "η = 1 - θ × [(n-1)m + (m-1)n] / (90mn)",
+        "where": {
+          "η": "Hệ số hiệu quả nhóm cọc",
+          "θ": "tan⁻¹(D/s) tính bằng độ",
+          "D": "Đường kính hoặc chiều rộng cọc (m)",
+          "s": "Khoảng cách tim cọc (m)",
+          "m": "Số hàng cọc",
+          "n": "Số cột cọc"
+        },
+        "minimumSpacing": {
+          "driven_piles": "s ≥ 3D (tốt nhất 3.5D - 4D)",
+          "bored_piles": "s ≥ 2.5D (tốt nhất 3D - 3.5D)",
+          "end_bearing": "s ≥ 2.5D",
+          "friction": "s ≥ 3D"
+        },
+        "groupCapacity": {
+          "formula1": "Qg = η × n × Qa",
+          "formula2": "Qg = min(η×n×Qa, Qblock)",
+          "where_Qblock": "Sức chịu tải khối (coi nhóm cọc như móng khối)"
+        },
+        "typicalEfficiency": {
+          "spacing_2_5D": "η ≈ 0.50 - 0.60",
+          "spacing_3D": "η ≈ 0.60 - 0.70",
+          "spacing_4D": "η ≈ 0.70 - 0.85",
+          "spacing_5D": "η ≈ 0.85 - 0.95",
+          "spacing_6D": "η ≈ 0.90 - 1.00"
+        }
+      },
+      "lateralCapacity": {
+        "standard": "TCVN 10304:2014",
+        "fixedHeadPile": "Hu = 9×cu×D×L (kN)",
+        "freeHeadPile": "Hu = 2×cu×D×L (kN)",
+        "where": {
+          "cu": "Cường độ chống cắt không thoát nước (kPa)",
+          "D": "Đường kính cọc (m)",
+          "L": "Chiều dài cọc ngàm (m)"
+        }
+      },
+      "settlement": {
+        "elastic": "Se = (Qa×L) / (Ap×Ep)",
+        "consolidation": "Sc = Cc×H×log10((σ'0+Δσ)/σ'0) / (1+e0)"
+      }
+    }
+  },
+  "steelDesign": {
+    "vietnameseSteelSections": {
+      "standard": "TCVN 5575:2012",
+      "H_beams": {
+        "H100x100x6x8": {
+          "h_mm": 100,
+          "b_mm": 100,
+          "tw_mm": 6,
+          "tf_mm": 8,
+          "A_cm2": 21.59,
+          "Ix_cm4": 383,
+          "Iy_cm4": 134,
+          "Wx_cm3": 76.6,
+          "Wy_cm3": 26.8,
+          "rx_cm": 4.21,
+          "ry_cm": 2.49,
+          "weight_kg_m": 16.9
+        },
+        "H150x150x7x10": {
+          "h_mm": 150,
+          "b_mm": 150,
+          "tw_mm": 7,
+          "tf_mm": 10,
+          "A_cm2": 40.23,
+          "Ix_cm4": 1622,
+          "Iy_cm4": 563,
+          "Wx_cm3": 216,
+          "Wy_cm3": 75.1,
+          "rx_cm": 6.35,
+          "ry_cm": 3.74,
+          "weight_kg_m": 31.6
+        },
+        "H200x200x8x12": {
+          "h_mm": 200,
+          "b_mm": 200,
+          "tw_mm": 8,
+          "tf_mm": 12,
+          "A_cm2": 63.53,
+          "Ix_cm4": 4720,
+          "Iy_cm4": 1600,
+          "Wx_cm3": 472,
+          "Wy_cm3": 160,
+          "rx_cm": 8.62,
+          "ry_cm": 5.02,
+          "weight_kg_m": 49.9
+        },
+        "H250x250x9x14": {
+          "h_mm": 250,
+          "b_mm": 250,
+          "tw_mm": 9,
+          "tf_mm": 14,
+          "A_cm2": 98.81,
+          "Ix_cm4": 11270,
+          "Iy_cm4": 3650,
+          "Wx_cm3": 902,
+          "Wy_cm3": 292,
+          "rx_cm": 10.68,
+          "ry_cm": 6.08,
+          "weight_kg_m": 77.6
+        },
+        "H300x300x10x15": {
+          "h_mm": 300,
+          "b_mm": 300,
+          "tw_mm": 10,
+          "tf_mm": 15,
+          "A_cm2": 125.37,
+          "Ix_cm4": 20420,
+          "Iy_cm4": 6750,
+          "Wx_cm3": 1361,
+          "Wy_cm3": 450,
+          "rx_cm": 12.76,
+          "ry_cm": 7.34,
+          "weight_kg_m": 98.4
+        },
+        "H350x350x12x19": {
+          "h_mm": 350,
+          "b_mm": 350,
+          "tw_mm": 12,
+          "tf_mm": 19,
+          "A_cm2": 181.46,
+          "Ix_cm4": 41040,
+          "Iy_cm4": 13600,
+          "Wx_cm3": 2345,
+          "Wy_cm3": 777,
+          "rx_cm": 15.04,
+          "ry_cm": 8.66,
+          "weight_kg_m": 142.4
+        },
+        "H400x400x13x21": {
+          "h_mm": 400,
+          "b_mm": 400,
+          "tw_mm": 13,
+          "tf_mm": 21,
+          "A_cm2": 238.74,
+          "Ix_cm4": 66610,
+          "Iy_cm4": 22120,
+          "Wx_cm3": 3331,
+          "Wy_cm3": 1106,
+          "rx_cm": 16.71,
+          "ry_cm": 9.63,
+          "weight_kg_m": 187.4
+        }
+      },
+      "box_sections": {
+        "BOX100x100x3": {
+          "h_mm": 100,
+          "b_mm": 100,
+          "t_mm": 3,
+          "A_cm2": 11.36,
+          "Ix_cm4": 349,
+          "Iy_cm4": 349,
+          "Wx_cm3": 69.8,
+          "Wy_cm3": 69.8,
+          "rx_cm": 5.54,
+          "ry_cm": 5.54,
+          "weight_kg_m": 8.92
+        },
+        "BOX150x150x4.5": {
+          "h_mm": 150,
+          "b_mm": 150,
+          "t_mm": 4.5,
+          "A_cm2": 25.67,
+          "Ix_cm4": 1288,
+          "Iy_cm4": 1288,
+          "Wx_cm3": 172,
+          "Wy_cm3": 172,
+          "rx_cm": 7.09,
+          "ry_cm": 7.09,
+          "weight_kg_m": 20.1
+        },
+        "BOX200x200x6": {
+          "h_mm": 200,
+          "b_mm": 200,
+          "t_mm": 6,
+          "A_cm2": 45.28,
+          "Ix_cm4": 3160,
+          "Iy_cm4": 3160,
+          "Wx_cm3": 316,
+          "Wy_cm3": 316,
+          "rx_cm": 8.35,
+          "ry_cm": 8.35,
+          "weight_kg_m": 35.5
+        },
+        "BOX250x250x8": {
+          "h_mm": 250,
+          "b_mm": 250,
+          "t_mm": 8,
+          "A_cm2": 76.48,
+          "Ix_cm4": 6840,
+          "Iy_cm4": 6840,
+          "Wx_cm3": 547,
+          "Wy_cm3": 547,
+          "rx_cm": 9.46,
+          "ry_cm": 9.46,
+          "weight_kg_m": 60.0
+        }
+      },
+      "channels": {
+        "C100x50x5": {
+          "h_mm": 100,
+          "b_mm": 50,
+          "t_mm": 5,
+          "A_cm2": 11.24,
+          "Ix_cm4": 206,
+          "Iy_cm4": 29.3,
+          "Wx_cm3": 41.2,
+          "Wy_cm3": 8.42,
+          "weight_kg_m": 8.82
+        },
+        "C150x75x6.5": {
+          "h_mm": 150,
+          "b_mm": 75,
+          "t_mm": 6.5,
+          "A_cm2": 22.72,
+          "Ix_cm4": 675,
+          "Iy_cm4": 105,
+          "Wx_cm3": 90.0,
+          "Wy_cm3": 21.0,
+          "weight_kg_m": 17.8
+        },
+        "C200x80x7.5": {
+          "h_mm": 200,
+          "b_mm": 80,
+          "t_mm": 7.5,
+          "A_cm2": 32.23,
+          "Ix_cm4": 1520,
+          "Iy_cm4": 164,
+          "Wx_cm3": 152,
+          "Wy_cm3": 30.6,
+          "weight_kg_m": 25.3
+        }
+      },
+      "angles": {
+        "L50x50x5": {
+          "a_mm": 50,
+          "b_mm": 50,
+          "t_mm": 5,
+          "A_cm2": 4.80,
+          "Ix_cm4": 17.8,
+          "Iy_cm4": 17.8,
+          "rx_cm": 1.93,
+          "ry_cm": 1.93,
+          "weight_kg_m": 3.77
+        },
+        "L75x75x8": {
+          "a_mm": 75,
+          "b_mm": 75,
+          "t_mm": 8,
+          "A_cm2": 11.44,
+          "Ix_cm4": 66.2,
+          "Iy_cm4": 66.2,
+          "rx_cm": 2.41,
+          "ry_cm": 2.41,
+          "weight_kg_m": 8.98
+        },
+        "L100x100x10": {
+          "a_mm": 100,
+          "b_mm": 100,
+          "t_mm": 10,
+          "A_cm2": 19.20,
+          "Ix_cm4": 179,
+          "Iy_cm4": 179,
+          "rx_cm": 3.05,
+          "ry_cm": 3.05,
+          "weight_kg_m": 15.1
+        }
+      }
+    },
+    "effectiveLengthFactors": {
+      "standard": "TCVN 5575:2012",
+      "idealizedConditions": {
+        "fixed_fixed": {
+          "k": 0.5,
+          "description": "Hai đầu ngàm"
+        },
+        "fixed_pinned": {
+          "k": 0.7,
+          "description": "Một đầu ngàm, một đầu khớp"
+        },
+        "fixed_free": {
+          "k": 2.0,
+          "description": "Một đầu ngàm, một đầu tự do (console)"
+        },
+        "pinned_pinned": {
+          "k": 1.0,
+          "description": "Hai đầu khớp"
+        },
+        "fixed_guided": {
+          "k": 1.0,
+          "description": "Một đầu ngàm, một đầu dịch chuyển ngang"
+        },
+        "pinned_guided": {
+          "k": 2.0,
+          "description": "Một đầu khớp, một đầu dịch chuyển ngang"
+        }
+      },
+      "momentFrames": {
+        "unbraced": {
+          "sidesway_inhibited": {
+            "range": "0.7 - 1.0",
+            "typical": 0.85,
+            "description": "Khung moment, không có giằng, hạn chế chuyển vị ngang"
+          },
+          "sidesway_uninhibited": {
+            "range": "1.0 - 2.0",
+            "typical": 1.2,
+            "description": "Khung moment, không có giằng, tự do chuyển vị ngang"
+          }
+        },
+        "braced": {
+          "k": "0.65 - 0.80",
+          "typical": 0.75,
+          "description": "Khung moment có giằng"
+        }
+      },
+      "bracedFrames": {
+        "diagonal_bracing": {
+          "k": 0.65,
+          "description": "Giằng chéo"
+        },
+        "x_bracing": {
+          "k": 0.70,
+          "description": "Giằng chữ X"
+        },
+        "k_bracing": {
+          "k": 0.75,
+          "description": "Giằng chữ K"
+        },
+        "shear_wall": {
+          "k": 0.80,
+          "description": "Tường chịu cắt"
+        }
+      },
+      "alignment_charts": {
+        "description": "Sử dụng nomograph để xác định k chính xác",
+        "sidesway_prevented": "Biểu đồ GA - GB (không chuyển vị ngang)",
+        "sidesway_permitted": "Biểu đồ GA - GB (có chuyển vị ngang)",
+        "G_formula": "G = Σ(Ic/Lc) / Σ(Ig/Lg)",
+        "where": {
+          "Ic": "Mô men quán tính cột",
+          "Lc": "Chiều dài cột",
+          "Ig": "Mô men quán tính dầm",
+          "Lg": "Chiều dài dầm"
+        }
+      }
+    },
+    "connections": {
+      "bolts": {
+        "standard": "TCVN 5575:2012",
+        "minimumSpacing": {
+          "between_bolts": "3d (tốt nhất 3.5d)",
+          "edge_distance": "1.5d đến 2d",
+          "where_d": "Đường kính bu lông (mm)"
+        },
+        "maximumSpacing": {
+          "painted_steel": "16t hoặc 200mm",
+          "unpainted_steel": "16t hoặc 300mm",
+          "compression_members": "12t",
+          "where_t": "Độ dày tấm mỏng nhất (mm)"
+        },
+        "boltSizes": {
+          "M12": {
+            "d_mm": 12,
+            "hole_mm": 13,
+            "min_spacing_mm": 36,
+            "min_edge_mm": 18
+          },
+          "M16": {
+            "d_mm": 16,
+            "hole_mm": 18,
+            "min_spacing_mm": 48,
+            "min_edge_mm": 24
+          },
+          "M20": {
+            "d_mm": 20,
+            "hole_mm": 22,
+            "min_spacing_mm": 60,
+            "min_edge_mm": 30
+          },
+          "M24": {
+            "d_mm": 24,
+            "hole_mm": 26,
+            "min_spacing_mm": 72,
+            "min_edge_mm": 36
+          },
+          "M27": {
+            "d_mm": 27,
+            "hole_mm": 30,
+            "min_spacing_mm": 81,
+            "min_edge_mm": 40
+          }
+        }
+      },
+      "welds": {
+        "filletWelds": {
+          "minimumSize": {
+            "t_less_6mm": "3mm",
+            "t_6_to_12mm": "5mm",
+            "t_12_to_20mm": "6mm",
+            "t_over_20mm": "8mm",
+            "where_t": "Độ dày tấm mỏng nhất"
+          },
+          "maximumSize": {
+            "edge_weld": "t - 1mm (t < 6mm) hoặc t - 1.5mm (t ≥ 6mm)"
+          },
+          "effectiveThroat": "a = 0.7 × leg size (mm)",
+          "minimumLength": "40mm hoặc 4 × weld size",
+          "maximumLength": "không giới hạn nếu có intermittent welds"
+        },
+        "grooveWelds": {
+          "completeJointPenetration": "CJP - thường dùng cho liên kết quan trọng",
+          "partialJointPenetration": "PJP - chiều sâu hàn xác định theo thiết kế"
+        },
+        "intermittentWelds": {
+          "pitch": "≤ 16t (painted) hoặc 24t (unpainted)",
+          "length": "≥ 40mm"
+        }
+      }
+    }
+  },
+  "windLoads": {
+    "standard": "TCVN 2737:2023",
+    "basicWindSpeed": {
+      "regionI": {
+        "V0_m_s": 32.6,
+        "description": "Vùng núi và trung du Bắc Bộ"
+      },
+      "regionII": {
+        "V0_m_s": 36.9,
+        "description": "Đồng bằng Bắc Bộ, Duyên hải Nam Trung Bộ"
+      },
+      "regionIII": {
+        "V0_m_s": 41.2,
+        "description": "Ven biển Trung Bộ"
+      },
+      "regionIV": {
+        "V0_m_s": 45.6,
+        "description": "Ven biển phía Nam"
+      },
+      "regionV": {
+        "V0_m_s": 50.0,
+        "description": "Hải đảo xa bờ"
+      }
+    },
+    "windPressure": {
+      "formula": "w = 0.5 × ρ × V² × Ce × Cd",
+      "simplified": "w = k × V² × Ce × Cd (N/m²)",
+      "where": {
+        "ρ": "Khối lượng riêng không khí = 1.25 kg/m³",
+        "V": "Tốc độ gió thiết kế (m/s)",
+        "k": "Hệ số = 0.625",
+        "Ce": "Hệ số địa hình và độ cao",
+        "Cd": "Hệ số khí động"
+      }
+    },
+    "terrainFactors": {
+      "description": "Hệ số Ce phụ thuộc dạng địa hình và độ cao",
+      "terrainA": {
+        "description": "Trống trải (biển, bãi biển)",
+        "alpha": 0.12,
+        "z0_m": 0.003,
+        "zmin_m": 2,
+        "heights": {
+          "5m": 1.23,
+          "10m": 1.38,
+          "15m": 1.48,
+          "20m": 1.55,
+          "30m": 1.66,
+          "40m": 1.75,
+          "50m": 1.82,
+          "60m": 1.88,
+          "80m": 1.98,
+          "100m": 2.06
+        }
+      },
+      "terrainB": {
+        "description": "Ven đô thị, cây cối rải rác",
+        "alpha": 0.16,
+        "z0_m": 0.03,
+        "zmin_m": 4,
+        "heights": {
+          "5m": 0.90,
+          "10m": 1.08,
+          "15m": 1.19,
+          "20m": 1.27,
+          "30m": 1.40,
+          "40m": 1.49,
+          "50m": 1.57,
+          "60m": 1.63,
+          "80m": 1.74,
+          "100m": 1.82
+        }
+      },
+      "terrainC": {
+        "description": "Đô thị dày đặc",
+        "alpha": 0.22,
+        "z0_m": 0.3,
+        "zmin_m": 8,
+        "heights": {
+          "10m": 0.74,
+          "15m": 0.87,
+          "20m": 0.96,
+          "30m": 1.10,
+          "40m": 1.21,
+          "50m": 1.29,
+          "60m": 1.36,
+          "80m": 1.48,
+          "100m": 1.58
+        }
+      },
+      "terrainD": {
+        "description": "Đô thị trung tâm cao tầng",
+        "alpha": 0.30,
+        "z0_m": 1.0,
+        "zmin_m": 16,
+        "heights": {
+          "20m": 0.67,
+          "30m": 0.82,
+          "40m": 0.93,
+          "50m": 1.02,
+          "60m": 1.09,
+          "80m": 1.21,
+          "100m": 1.31,
+          "150m": 1.50,
+          "200m": 1.64
+        }
+      }
+    },
+    "aerodynamicCoefficients": {
+      "buildings": {
+        "rectangular_windward": {
+          "Cd": 0.8,
+          "description": "Tường đón gió"
+        },
+        "rectangular_leeward": {
+          "Cd": -0.5,
+          "description": "Tường khuất gió (h/b ≤ 1)",
+          "Cd_tall": -0.7,
+          "description_tall": "Tường khuất gió (h/b > 1)"
+        },
+        "rectangular_sidewall": {
+          "Cd": -0.7,
+          "description": "Tường bên"
+        },
+        "flat_roof": {
+          "Cd": -0.7,
+          "description": "Mái bằng hoặc độ dốc < 10°"
+        },
+        "pitched_roof_windward": {
+          "0_10_degrees": -0.7,
+          "10_20_degrees": -0.5,
+          "20_30_degrees": -0.3,
+          "30_45_degrees": 0.4,
+          "45_60_degrees": 0.7
+        },
+        "pitched_roof_leeward": {
+          "all_slopes": -0.5
+        }
+      },
+      "steelFrames": {
+        "single_member": {
+          "Cd": 1.2,
+          "description": "Thanh đơn"
+        },
+        "truss": {
+          "Cd": 1.6,
+          "description": "Giàn không có tấm che"
+        },
+        "frame_with_cladding": {
+          "Cd": 1.8,
+          "description": "Khung có tấm bọc"
+        }
+      },
+      "cylindrical": {
+        "rough_surface": {
+          "Cd": 1.2,
+          "description": "Bề mặt nhám"
+        },
+        "smooth_surface": {
+          "Cd": 0.7,
+          "description": "Bề mặt trơn"
+        }
+      },
+      "signs_plates": {
+        "Cd": 1.8,
+          "description": "Bảng hiệu, tấm phẳng"
+      }
+    },
+    "gustFactors": {
+      "description": "Hệ số giật gió",
+      "structures": {
+        "rigid": {
+          "G": 2.0,
+          "description": "Công trình cứng (chu kỳ dao động < 1s)"
+        },
+        "flexible": {
+          "formula": "G = 1 + 2gI√(B + R)",
+          "where": {
+            "g": "Hệ số đỉnh = 3.5",
+            "I": "Cường độ nhiễu động = 0.15 - 0.25",
+            "B": "Phản ứng nền",
+            "R": "Phản ứng cộng hưởng"
+          },
+          "typical_range": "2.0 - 3.0"
+        }
+      }
+    }
+  },
+  "documentationRequirements": {
+    "calculationReport": {
+      "standard": "Thông tư 09/2016/TT-BXD",
+      "mandatory_sections": {
+        "1_cover": {
+          "required": [
+            "Tên dự án",
+            "Loại tài liệu (Thuyết minh tính toán)",
+            "Phần công trình",
+            "Đơn vị tư vấn",
+            "Ngày tháng năm"
+          ]
+        },
+        "2_contents": {
+          "description": "Mục lục chi tiết với số trang"
+        },
+        "3_design_basis": {
+          "3_1_codes": [
+            "TCVN 2737:2023 - Tải trọng gió",
+            "TCVN 5574:2018 - Kết cấu bê tông cốt thép",
+            "TCVN 5575:2012 - Kết cấu thép",
+            "TCVN 10304:2014 - Móng cọc",
+            "TCVN 9386:2012 - Thiết kế chống động đất"
+          ],
+          "3_2_materials": {
+            "concrete": "Mác bê tông: B15, B20, B25, B30...",
+            "steel_rebar": "Cốt thép: CB240-T, CB300-V, CB400-V, CB500-V",
+            "steel_structural": "Thép kết cấu: CT3, CT5",
+            "foundation_soil": "Đặc trưng địa chất"
+          },
+          "3_3_loads": {
+            "dead_load": "Tĩnh tải",
+            "live_load": "Hoạt tải",
+            "wind_load": "Tải trọng gió",
+            "seismic_load": "Tải trọng động đất",
+            "other_loads": "Các tải trọng khác"
+          }
+        },
+        "4_structural_analysis": {
+          "4_1_model": "Sơ đồ tính toán, phần mềm sử dụng",
+          "4_2_results": "Nội lực, chuyển vị",
+          "4_3_load_combinations": "Tổ hợp tải trọng"
+        },
+        "5_member_design": {
+          "5_1_beams": "Tính toán dầm",
+          "5_2_columns": "Tính toán cột",
+          "5_3_slabs": "Tính toán sàn",
+          "5_4_foundations": "Tính toán móng",
+          "5_5_connections": "Tính toán liên kết"
+        },
+        "6_drawings_reference": {
+          "description": "Tham chiếu bản vẽ thi công"
+        },
+        "7_conclusions": {
+          "description": "Kết luận và kiến nghị"
+        }
+      },
+      "table_format": {
+        "headers_required": true,
+        "units_required": true,
+        "numbering": "Bảng X.Y - Tên bảng",
+        "example": {
+          "table_number": "Bảng 4.1",
+          "title": "Nội lực dầm trục A",
+          "columns": ["Vị trí", "M (kN.m)", "Q (kN)", "N (kN)"],
+          "units_row": true
+        }
+      },
+      "figure_format": {
+        "numbering": "Hình X.Y - Chú thích",
+        "scale_required": true,
+        "legend_required": true
+      },
+      "calculation_format": {
+        "formula_presentation": "Ghi rõ công thức → Thay số → Kết quả",
+        "units": "Ghi đầy đủ đơn vị",
+        "standards_reference": "Trích dẫn điều khoản cụ thể",
+        "example": {
+          "step1": "Công thức: M = q × L² / 8 (TCVN 5574:2018, Điều 6.1.1)",
+          "step2": "Thay số: M = 15 × 6² / 8",
+          "step3": "Kết quả: M = 67.5 kN.m"
+        }
+      }
+    },
+    "approval_signatures": {
+      "positions_required": {
+        "1_designer": {
+          "title": "Người tính toán",
+          "qualifications": "Có chứng chỉ hành nghề phù hợp"
+        },
+        "2_checker": {
+          "title": "Người kiểm tra",
+          "qualifications": "Có chứng chỉ hành nghề cấp cao hơn hoặc bằng người tính"
+        },
+        "3_chief_engineer": {
+          "title": "Kỹ sư trưởng / Chủ nhiệm đồ án",
+          "qualifications": "Có chứng chỉ hành nghề thiết kế phù hợp"
+        }
+      },
+      "signature_block": {
+        "format": [
+          "Chức danh",
+          "(Ký, ghi rõ họ tên)",
+          "",
+          "",
+          "Họ và tên",
+          "Số chứng chỉ hành nghề: [số]"
+        ]
+      },
+      "stamp_requirements": {
+        "company_stamp": "Dấu giáp lai (góc trên bên phải trang đầu)",
+        "engineer_stamp": "Dấu đỏ kỹ sư (trên chữ ký)",
+        "consulting_firm_stamp": "Dấu công ty tư vấn"
+      }
+    }
+  },
+  "preEngineeredBuildings": {
+    "sections": {
+      "standard": "Zamil Steel, BlueScope, ATAD, Lindab",
+      "taperedBeams": {
+        "description": "Dầm thép biến tiết diện (tăng dần về gối)",
+        "typical_config": {
+          "haunch_length": "15-25% nhịp",
+          "depth_ratio": "d_ridge/d_eave = 0.4 - 0.6",
+          "web_thickness": "4mm - 8mm",
+          "flange_width": "200mm - 400mm"
+        },
+        "properties_varying": [
+          "Moment of inertia Ix(x)",
+          "Section modulus Wx(x)",
+          "Depth h(x)"
+        ],
+        "typical_sizes": {
+          "span_15m": {
+            "d_eave_mm": 450,
+            "d_ridge_mm": 250,
+            "tw_mm": 5,
+            "bf_mm": 250
+          },
+          "span_25m": {
+            "d_eave_mm": 700,
+            "d_ridge_mm": 400,
+            "tw_mm": 6,
+            "bf_mm": 300
+          },
+          "span_35m": {
+            "d_eave_mm": 1000,
+            "d_ridge_mm": 550,
+            "tw_mm": 8,
+            "bf_mm": 350
+          }
+        }
+      },
+      "webOpenings": {
+        "purpose": "Giảm trọng lượng, chạy ống kỹ thuật",
+        "standard_shapes": ["circular", "hexagonal", "rectangular"],
+        "size_limits": {
+          "diameter": "0.5h - 0.7h",
+          "spacing": "≥ 1.5 × opening_size",
+          "edge_distance": "≥ 1.0h from column face"
+        },
+        "reinforcement": {
+          "required_when": "d_opening > 0.6h",
+          "stiffener_thickness": "tw hoặc thicker",
+          "stiffener_width": "50mm - 100mm"
+        }
+      },
+      "columns": {
+        "types": {
+          "I_section": "Single web column (cao đến 12m)",
+          "box_section": "Box column (cao 12-20m)",
+          "built_up_I": "Built-up I (cao > 20m)"
+        },
+        "typical_sections": {
+          "height_6m": "H300x300x10x15",
+          "height_10m": "H400x400x13x21",
+          "height_15m": "BOX400x400x12"
+        }
+      }
+    },
+    "connections": {
+      "basePlate": {
+        "standard": "AISC Design Guide 1",
+        "components": {
+          "plate_thickness": "20mm - 40mm",
+          "anchor_bolts": "M20 - M36",
+          "bolt_pattern": "4 hoặc 8 bolts",
+          "grout_thickness": "50mm - 75mm"
+        },
+        "design_checks": [
+          "Bearing on concrete",
+          "Plate bending",
+          "Anchor bolt tension",
+          "Anchor bolt shear"
+        ]
+      },
+      "apexConnection": {
+        "types": {
+          "bolted_splice": "Nối bu lông (phổ biến)",
+          "welded_ridge": "Hàn đỉnh (nhịp lớn)"
+        },
+        "bolted_details": {
+          "splice_plates": "Thickness = tw + 2mm",
+          "bolt_grade": "Grade 8.8 hoặc 10.9",
+          "bolt_spacing": "3d - 3.5d"
+        }
+      },
+      "purlinsAndGirts": {
+        "purlin_sections": ["C150", "C200", "C250", "Z200", "Z250"],
+        "spacing": "1.5m - 2.0m",
+        "connection_to_frame": {
+          "type": "Bolted clip angle hoặc cleat",
+          "bolts": "M16 - M20",
+          "sag_rods": "φ12 - φ16 mỗi 3-4 nhịp"
+        },
+        "bracing": {
+          "sag_rods": "Chống võng giữa nhịp",
+          "anti_sag_rods": "Chống võng gần gối tựa",
+          "spacing": "Every 3rd or 4th span"
+        }
+      },
+      "bracingSystems": {
+        "longitudinal": {
+          "roof_bracing": "X-bracing hoặc K-bracing ở vị trí cuối và giữa",
+          "wall_bracing": "Tương tự, căn chỉnh với roof bracing"
+        },
+        "transverse": {
+          "portal_frame": "Khung moment (thường dùng)",
+          "knee_bracing": "Giằng đầu gối (tăng cứng)"
+        },
+        "sections": {
+          "roof_x_bracing": "L50x50x5 đến L75x75x8",
+          "wall_x_bracing": "L50x50x5 đến L90x90x10",
+          "rods": "φ16 - φ24 (nhịp nhỏ)"
+        }
+      }
+    },
+    "designConsiderations": {
+      "loads": {
+        "dead_load": {
+          "steel_frame": "10-15 kg/m² (plan area)",
+          "purlins_girts": "5-8 kg/m²",
+          "roof_cladding": "5-10 kg/m²",
+          "wall_cladding": "10-15 kg/m²",
+          "insulation": "2-5 kg/m²",
+          "MEP": "5-10 kg/m²"
+        },
+        "live_load": {
+          "roof_access": "0.5 kN/m²",
+          "ceiling": "0.25 kN/m² (if applicable)"
+        },
+        "wind_load": "Theo TCVN 2737:2023",
+        "seismic": "Thường không chi phối với PEB nhẹ"
+      },
+      "deflectionLimits": {
+        "main_frame": "L/180 (dead + live)",
+        "purlins_girts": "L/150",
+        "endwall_columns": "H/100"
+      },
+      "stability": {
+        "frame_stability": "Kiểm tra tỷ số λ và chuyển vị ngang",
+        "member_stability": "Kiểm tra ổn định nén và uốn cục bộ"
+      }
+    }
+  },
+  "notes": {
+    "currency": "Dữ liệu dựa trên tiêu chuẩn Việt Nam hiện hành (2024-2025)",
+    "updates": "Luôn kiểm tra phiên bản tiêu chuẩn mới nhất từ Bộ Xây dựng",
+    "software": "Dữ liệu có thể dùng cho SAP2000, ETABS, SAFE, Tekla, StaadPro",
+    "verification": "Mọi tính toán cần được kiểm tra bởi kỹ sư có chứng chỉ hành nghề",
+    "regional_variations": "Một số thông số có thể thay đổi theo địa phương"
+  }
+}

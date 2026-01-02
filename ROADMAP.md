@@ -1,181 +1,70 @@
 # VietStruct FEM - Development Roadmap
 
 ## 🎯 Vision
-Trở thành phần mềm tính toán kết cấu mã nguồn mở hàng đầu cho kỹ sư Việt Nam.
+Trở thành phần mềm tính toán kết cấu mã nguồn mở hàng đầu cho kỹ sư Việt Nam, tích hợp đầy đủ TCVN và công nghệ hiển thị hiện đại.
 
 ---
 
-## ✅ v0.1.0 - Initial Release (COMPLETED)
+## 🚀 Live Status (2026-01-03)
 
-**Status**: 🎉 RELEASED
+**Current Version**: `v0.6.0-beta`
+**Progress**: ~60% of MVP Goals met.
 
-**Features**:
-- ✅ Floor System Design với FEM Analysis
-- ✅ Industrial Buildings (Purlin, Wind Load, Portal Frame)
-- ✅ TCVN 2737/5575/9386 compliance
-- ✅ 63 Vietnamese cities wind database
-- ✅ Bilingual support (Vietnamese + English)
-- ✅ 21 unit tests
-- ✅ Complete documentation
-- ✅ CI/CD automation
-
-**Released**: 2026-01-02
-
----
-
-## 🚧 v0.2.0 - GUI Integration (Next - 1-2 weeks)
-
-**Goal**: Gộp tất cả modules vào một GUI thống nhất
-
-**Features**:
-- [ ] Main Window với tabbed interface:
-  - Tab 1: 🏢 Floor System (existing)
-  - Tab 2: 🏭 Industrial Buildings (new)
-    - Sub-tab: Purlin Calculator
-    - Sub-tab: Wind Load Calculator
-    - Sub-tab: Portal Frame Designer
-- [ ] Shared 3D visualization
-- [ ] Unified reporting system
-- [ ] Session management (save/load projects)
-
-**Estimated**: 10-15 hours
+### ✅ Completed Modules (Đã hoàn thành)
+| Feature | Module | Details |
+|---------|--------|---------|
+| **GUI Framework** | Core | Modern Tabbed Interface, responsive layout |
+| **Sàn Deck** | `SteelDeckModule` | 3D Visualization, Check Bending/Shear |
+| **Cột BTCT** | `RCColumnModule` | Interaction Diagram (M-N), Bi-axial Check |
+| **Khung 2D** | `FrameAnalysisModule` | FEM Engine (`anastruct`), M/V/Deflection Diagrams |
+| **Nhà Công Nghiệp** | `WarehouseModule` | **NEW!** Wind Load (TCVN 2737:2023), Purlin Auto-Design |
+| **Động Đất** | `OpenSeesModule` | Modal Analysis (Periods/Frequencies) using `OpenSeesPy` |
+| **Báo Cáo** | All | Standardized HTML Reports ("Thuyết minh") for all modules |
+| **Stability** | Core | Global Exception Handler, "Busy State" locking |
 
 ---
 
-## 📈 v0.3.0 - Testing & Quality (2-3 weeks)
+## 📅 Short-term Plans (Jan 2026)
 
-**Goal**: Tăng test coverage và fix bugs
+### �️ v0.7.0 - Foundation & Connections (Móng & Liên kết)
+**Priority**: High (User Request)
+- [ ] **Móng Đơn/Cọc**: Implement logic from Excel references.
+- [ ] **Liên kết Thép**: Check Base Plate (Chân cột) & Apex (Đỉnh kèo).
 
-**Features**:
-- [ ] Test coverage: 70-80%
-- [ ] Integration tests
-- [ ] Fix FEM matrix singularity
-- [ ] Performance optimization
-- [ ] More example scripts:
-  - Portal frame complete example
-  - Multi-story building
-  - Industrial building with crane
-
-**Estimated**: 15-20 hours
+### � v0.8.0 - Advanced Industrial Building (Zamil)
+**Priority**: High
+- [ ] **Tapered Sections**: Support vát (Tapered) functionality in Frame Analysis.
+- [ ] **Combo Generator**: Auto-generate load combinations (Dead + Live + Wind).
 
 ---
 
-## 🎨 v0.4.0 - UI/UX Improvements (1 month)
+## 🔮 Medium-term Plans (Q1 2026)
 
-**Goal**: Cải thiện trải nghiệm người dùng
-
-**Features**:
-- [ ] Enhanced 3D visualization:
-  - Better controls (rotate, zoom, pan)
-  - Animation support
-  - Load visualization
-- [ ] Section library browser
-- [ ] Load combination wizard
-- [ ] Project templates
-- [ ] Dark mode option
-- [ ] Keyboard shortcuts
-
-**Estimated**: 20-30 hours
+### v1.0.0 - Production Release
+- [ ] **Save/Open Project**: JSON/SQLite based file format.
+- [ ] **DXF Export**: Expand DXF export to all modules (currently only Frame).
+- [ ] **Settings**: User-defined material libraries & safety factors.
 
 ---
 
-## 🏗️ v0.5.0 - Advanced Structures (2-3 months)
-
-**Goal**: Mở rộng khả năng tính toán
-
-**Features**:
-- [ ] Seismic Analysis (TCVN 9386:2024):
-  - Seismic zone map
-  - Response spectrum
-  - Base shear calculation
-  - Story drift checks
-- [ ] Base Plate Design:
-  - Bearing pressure
-  - Anchor bolt design
-  - Plate thickness
-  - Weld design
-- [ ] Truss Analysis:
-  - Truss modeling
-  - Member forces
-  - Joint design
-
-**Estimated**: 40-60 hours
+##  Long-term (Future)
+- **BIM Integration**: Revit Plugin / IFC Export.
+- **AI Assistant**: Natural language querying for code checks.
+- **Web App**: Port key calculation modules to WebAssembly/React.
 
 ---
 
-## 🌐 v1.0.0 - Production Release (6 months)
+## 📊 Version History
 
-**Goal**: Production-ready với đầy đủ tính năng
-
-**Major Features**:
-- [ ] Complete TCVN standards library
-- [ ] Cloud sync/collaboration
-- [ ] Export to DXF/DWG
-- [ ] BIM integration
-- [ ] Mobile companion app
-- [ ] Video tutorials
-- [ ] API documentation (Sphinx/pdoc)
-- [ ] Package on PyPI
-
-**Quality Goals**:
-- [ ] 80%+ test coverage
-- [ ] Performance benchmarks
-- [ ] Security audit
-- [ ] Accessibility compliance
-- [ ] 1000+ GitHub stars
+| Version | Status | Key Features |
+|---------|--------|--------------|
+| v0.1.0 | ✅ Done | Initial CLI Tools |
+| v0.2.0 | ✅ Done | Basic GUI & Frame Analysis |
+| v0.5.0 | ✅ Done | Modular Architecture, Reporting, Stability |
+| v0.6.0 | ✅ Done | Industrial Warehouse (Wind/Purlin), Auto-Design |
+| v0.7.0 | � Next | Foundations & Connections |
 
 ---
 
-## 🔮 Future (v2.0+)
-
-**Dream Features**:
-- AI-powered section optimization
-- Natural language input ("thiết kế sàn 20x15m")
-- Web version (browser-based)
-- Real-time collaboration
-- Plugin system
-- International standards (Eurocode, AISC)
-- Machine learning for load prediction
-
----
-
-## 🤝 How to Contribute
-
-Chúng tôi hoan nghênh mọi đóng góp! See [CONTRIBUTING.md](CONTRIBUTING.md)
-
-**Areas needing help**:
-1. 🧪 **Testing**: Write more unit tests
-2. 📝 **Documentation**: Examples, tutorials, videos
-3. 🐛 **Bug Fixes**: Check [Issues](https://github.com/vandang890615/VietStructFEM/issues)
-4. ✨ **New Features**: Pick from roadmap
-5. 🌍 **Translation**: Help with English docs
-
----
-
-## 📊 Progress Tracking
-
-| Version | Status | Progress | Timeline |
-|---------|--------|----------|----------|
-| v0.1.0 | ✅ Done | 100% | 2026-01-02 |
-| v0.2.0 | 🚧 Planned | 0% | 2-3 weeks |
-| v0.3.0 | 📋 Todo | 0% | 4-6 weeks |
-| v0.4.0 | 📋 Todo | 0% | 2-3 months |
-| v0.5.0 | 📋 Todo | 0% | 3-6 months |
-| v1.0.0 | 🎯 Goal | 0% | 6-12 months |
-
----
-
-## 💬 Community Feedback
-
-We listen to the community! 
-
-**Most requested features** (add yours!):
-- [ ] ?
-
-**Report bugs**: [GitHub Issues](https://github.com/vandang890615/VietStructFEM/issues)  
-**Suggest features**: [GitHub Discussions](https://github.com/vandang890615/VietStructFEM/discussions)
-
----
-
-**Last Updated**: 2026-01-02  
 **Maintainer**: [@vandang890615](https://github.com/vandang890615)
+**Last Updated**: 2026-01-03

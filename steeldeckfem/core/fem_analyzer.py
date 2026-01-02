@@ -303,10 +303,13 @@ class FloorSystemFEMAnalyzer:
             w = total_load * tributary_width
             self.model.add_member_dist_load(member_name, 'Fy', -w, -w, 0, 1)
     
-    def run_analysis(self) -> Dict[str, Any]:
+    def run_analysis(self, layout=None) -> Dict[str, Any]:
         """
         Run FEM analysis and extract results
         
+        Args:
+            layout: Optional layout object for design checks
+            
         Returns:
             Dictionary with analysis results
         """
@@ -323,8 +326,14 @@ class FloorSystemFEMAnalyzer:
                 'reactions': self._extract_reactions(),
                 'member_forces': self._extract_member_forces(),
                 'max_deflection': self._find_max_deflection(),
+                'design_checks': {},  # Placeholder for design checks
                 'status': 'Analysis Complete'
             }
+            
+            # TODO: Implement design checks using layout if provided
+            if layout:
+                pass
+                
         except Exception as e:
             # Analysis failed - return partial results with error info
             print(f"⚠️  FEM Analysis encountered issues: {e}")
@@ -333,6 +342,7 @@ class FloorSystemFEMAnalyzer:
                 'reactions': {},
                 'member_forces': {},
                 'max_deflection': {'value': 0, 'node': 'N/A', 'limit': 'N/A'},
+                'design_checks': {},
                 'status': f'Analysis failed: {str(e)}',
                 'error': str(e)
             }

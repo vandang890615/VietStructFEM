@@ -2,9 +2,9 @@
 """
 VietStruct FEM - UI Package
 """
-from .main_window import SteelDeckCalculatorDialog
+from .main_window import MainWindow
 
 __all__ = [
-    'SteelDeckCalculatorDialog',
+    'MainWindow',
 ]
 
