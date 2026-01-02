@@ -4,8 +4,8 @@ Utility Modules - Combined UI for Phases 20-24
 Includes: Shear Wall, Staircase, Strip Footing, Cantilever
 """
 
-from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QTabWidget)
-from PyQt5.QtWidgets import QLabel, QMessageBox
+from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QTabWidget, QLabel)
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 
 
@@ -28,7 +28,7 @@ class UtilityModulesWidget(QWidget):
         label = QLabel("🧱 VÁCH CHỊU CẮT\n\nTính toán vách BTCT chịu cắt theo TCVN 5574:2018\n\n"
                       "Module đã sẵn sàng. UI chi tiết sẽ bổ sung trong phiên bản tiếp theo.")
         label.setFont(QFont("Arial", 10))
-        label.setAlignment(0x84)
+        label.setAlignment(Qt.AlignCenter)
         wall_layout.addWidget(label)
         tabs.addTab(wall_tab, "🧱 Vách")
         
@@ -38,7 +38,7 @@ class UtilityModulesWidget(QWidget):
         label = QLabel("🪜 CẦU THANG\n\nThiết kế cầu thang BTCT theo TCVN 5574:2018\n\n"
                       "Module đã sẵn sàng. UI chi tiết sẽ bổ sung trong phiên bản tiếp theo.")
         label.setFont(QFont("Arial", 10))
-        label.setAlignment(0x84)
+        label.setAlignment(Qt.AlignCenter)
         stair_layout.addWidget(label)
         tabs.addTab(stair_tab, "🪜 Cầu thang")
         
@@ -48,7 +48,7 @@ class UtilityModulesWidget(QWidget):
         label = QLabel("📏 MÓNG BĂNG\n\nThiết kế móng băng liên tục theo TCVN 9362:2012\n\n"
                       "Module đã sẵn sàng. UI chi tiết sẽ bổ sung trong phiên bản tiếp theo.")
         label.setFont(QFont("Arial", 10))
-        label.setAlignment(0x84)
+        label.setAlignment(Qt.AlignCenter)
         strip_layout.addWidget(label)
         tabs.addTab(strip_tab, "📏 Móng băng")
         
@@ -58,7 +58,7 @@ class UtilityModulesWidget(QWidget):
         label = QLabel("🏗️ CÔNG XÔN / BAN CÔNG\n\nThiết kế cấu kiện công xôn theo TCVN 5574:2018\n\n"
                       "Module đã sẵn sàng. UI chi tiết sẽ bổ sung trong phiên bản tiếp theo.")
         label.setFont(QFont("Arial", 10))
-        label.setAlignment(0x84)
+        label.setAlignment(Qt.AlignCenter)
         cant_layout.addWidget(label)
         tabs.addTab(cant_tab, "🏗️ Công xôn")
         

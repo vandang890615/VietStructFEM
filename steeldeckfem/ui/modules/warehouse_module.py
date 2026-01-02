@@ -152,7 +152,8 @@ class WarehouseModule(QWidget):
         
         btn_calc = QPushButton("Tính toán Gió")
         btn_calc.setStyleSheet("background-color: #2980b9; color: white; padding: 10px; font-weight: bold;")
-        btn_calc.clicked.connect(self.calc_wind)
+        # TODO: Fix calc_wind method - temporarily disabled
+        # btn_calc.clicked.connect(self.calc_wind)
         
         left_layout = QVBoxLayout()
         left_layout.addWidget(gb_in)

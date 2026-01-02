@@ -50,7 +50,7 @@ VietStructFEM is a comprehensive structural engineering software for Vietnamese 
 ### Setup
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/VietStructFEM.git
+git clone https://github.com/vandang890615/VietStructFEM.git
 cd VietStructFEM
 
 # Create virtual environment

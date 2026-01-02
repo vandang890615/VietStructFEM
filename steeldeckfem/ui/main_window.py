@@ -127,9 +127,9 @@ class MainWindow(QMainWindow):
         self.opensees_module = OpenSeesModule()
         self.tabs.addTab(self.opensees_module, "🌊 ĐỘNG ĐẤT (OPEN-SEES)")
         
-        # Tab 5: Industrial Warehouse (NEW)
-        self.warehouse_module = WarehouseModule()
-        self.tabs.addTab(self.warehouse_module, "🏭 NHÀ CÔNG NGHIỆP")
+        # Tab 5: Industrial Warehouse (Temporarily disabled - needs fixes)
+        # self.warehouse_module = WarehouseModule()
+        # self.tabs.addTab(self.warehouse_module, "🏭 NHÀ CÔNG NGHIỆP")
         
         # Tab 6: Load Combination Wizard (NEW - Phase 14)
         self.loadcombo_wizard = LoadCombinationWizard()
