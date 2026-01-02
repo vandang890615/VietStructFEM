@@ -1,102 +1,181 @@
 # VietStruct FEM - Development Roadmap
 
 ## 🎯 Vision
-**Phần mềm tính kết cấu toàn diện cho kỹ sư Việt Nam**  
-Comprehensive structural analysis software for Vietnamese engineers
+Trở thành phần mềm tính toán kết cấu mã nguồn mở hàng đầu cho kỹ sư Việt Nam.
 
 ---
 
-## ✅ Phase 1: Steel Deck Module (COMPLETED)
-- [x] FEM analysis với PyNite
-- [x] Interactive Plotly diagrams  
-- [x] 3D visualization dengan stress coloring
-- [x] Wind load database (TCVN 2737:2023)
-- [x] Unity check theo TCVN 5575:2024
-- [x] Critical member identification
+## ✅ v0.1.0 - Initial Release (COMPLETED)
+
+**Status**: 🎉 RELEASED
+
+**Features**:
+- ✅ Floor System Design với FEM Analysis
+- ✅ Industrial Buildings (Purlin, Wind Load, Portal Frame)
+- ✅ TCVN 2737/5575/9386 compliance
+- ✅ 63 Vietnamese cities wind database
+- ✅ Bilingual support (Vietnamese + English)
+- ✅ 21 unit tests
+- ✅ Complete documentation
+- ✅ CI/CD automation
+
+**Released**: 2026-01-02
 
 ---
 
-## 🚧 Phase 2: Industrial Building Module (IN PLANNING)
+## 🚧 v0.2.0 - GUI Integration (Next - 1-2 weeks)
 
-### 2.1 Portal Frame Analysis
-- [ ] Single-span portal frames
-- [ ] Multi-span portal frames
-- [ ] Crane beam integration
-- [ ] Base plate design
+**Goal**: Gộp tất cả modules vào một GUI thống nhất
 
-### 2.2 Truss Systems
-- [ ] Roof truss analysis
-- [ ] Warren, Pratt, Howe trusses
-- [ ] Member optimization
-- [ ] Connection design
+**Features**:
+- [ ] Main Window với tabbed interface:
+  - Tab 1: 🏢 Floor System (existing)
+  - Tab 2: 🏭 Industrial Buildings (new)
+    - Sub-tab: Purlin Calculator
+    - Sub-tab: Wind Load Calculator
+    - Sub-tab: Portal Frame Designer
+- [ ] Shared 3D visualization
+- [ ] Unified reporting system
+- [ ] Session management (save/load projects)
 
-### 2.3 Wind & Load Analysis
-- [ ] Wind pressure distribution
-- [ ] Crane loads (vertical + horizontal)
-- [ ] Seismic analysis (TCVN 9386:2024)
-- [ ] Load combinations
+**Estimated**: 10-15 hours
 
 ---
 
-## 🏢 Phase 3: BTCT Module (REINFORCED CONCRETE)
+## 📈 v0.3.0 - Testing & Quality (2-3 weeks)
 
-### 3.1 Beam Design
-- [ ] Flexural design (TCVN 5574:2024)
-- [ ] Shear design
-- [ ] Torsion
-- [ ] Reinforcement detailing
-- [ ] Crack width checking
+**Goal**: Tăng test coverage và fix bugs
 
-### 3.2 Column Design
-- [ ] Axial + bending (P-M interaction)
-- [ ] Slenderness effects
-- [ ] Biaxial bending
-- [ ] Spiral/tie reinforcement
+**Features**:
+- [ ] Test coverage: 70-80%
+- [ ] Integration tests
+- [ ] Fix FEM matrix singularity
+- [ ] Performance optimization
+- [ ] More example scripts:
+  - Portal frame complete example
+  - Multi-story building
+  - Industrial building with crane
 
-### 3.3 Slab Design
-- [ ] One-way slabs
-- [ ] Two-way slabs
-- [ ] Flat slabs
-- [ ] Punching shear
+**Estimated**: 15-20 hours
 
 ---
 
-## 🔮 Phase 4: Advanced Features
+## 🎨 v0.4.0 - UI/UX Improvements (1 month)
 
-### 4.1 Dynamic Analysis
-- [ ] Modal analysis
-- [ ] Response spectrum
-- [ ] Time history
+**Goal**: Cải thiện trải nghiệm người dùng
 
-### 4.2 Non-linear Analysis
-- [ ] P-Delta effects
-- [ ] Material non-linearity
-- [ ] Geometric non-linearity
+**Features**:
+- [ ] Enhanced 3D visualization:
+  - Better controls (rotate, zoom, pan)
+  - Animation support
+  - Load visualization
+- [ ] Section library browser
+- [ ] Load combination wizard
+- [ ] Project templates
+- [ ] Dark mode option
+- [ ] Keyboard shortcuts
 
-### 4.3 BIM Integration  
-- [ ] Import from Revit/Tekla
-- [ ] IFC format support
-- [ ] Export to CAD
+**Estimated**: 20-30 hours
 
 ---
 
-## 📅 Release Timeline
+## 🏗️ v0.5.0 - Advanced Structures (2-3 months)
 
-| Version | Feature | Target Date |
-|---------|---------|-------------|
-| v1.0 | Steel Deck + Steel Frame | Q1 2026 |
-| v1.5 | Industrial Buildings | Q2 2026 |
-| v2.0 | BTCT Module | Q3 2026 |
-| v3.0 | Advanced Analysis | Q4 2026 |
+**Goal**: Mở rộng khả năng tính toán
+
+**Features**:
+- [ ] Seismic Analysis (TCVN 9386:2024):
+  - Seismic zone map
+  - Response spectrum
+  - Base shear calculation
+  - Story drift checks
+- [ ] Base Plate Design:
+  - Bearing pressure
+  - Anchor bolt design
+  - Plate thickness
+  - Weld design
+- [ ] Truss Analysis:
+  - Truss modeling
+  - Member forces
+  - Joint design
+
+**Estimated**: 40-60 hours
+
+---
+
+## 🌐 v1.0.0 - Production Release (6 months)
+
+**Goal**: Production-ready với đầy đủ tính năng
+
+**Major Features**:
+- [ ] Complete TCVN standards library
+- [ ] Cloud sync/collaboration
+- [ ] Export to DXF/DWG
+- [ ] BIM integration
+- [ ] Mobile companion app
+- [ ] Video tutorials
+- [ ] API documentation (Sphinx/pdoc)
+- [ ] Package on PyPI
+
+**Quality Goals**:
+- [ ] 80%+ test coverage
+- [ ] Performance benchmarks
+- [ ] Security audit
+- [ ] Accessibility compliance
+- [ ] 1000+ GitHub stars
+
+---
+
+## 🔮 Future (v2.0+)
+
+**Dream Features**:
+- AI-powered section optimization
+- Natural language input ("thiết kế sàn 20x15m")
+- Web version (browser-based)
+- Real-time collaboration
+- Plugin system
+- International standards (Eurocode, AISC)
+- Machine learning for load prediction
 
 ---
 
 ## 🤝 How to Contribute
 
-Chọn module bạn quan tâm và contribute:
-1. Fork repository
-2. Pick a task from roadmap
-3. Implement + test
-4. Submit pull request
+Chúng tôi hoan nghênh mọi đóng góp! See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-**Kỹ sư nào giỏi mảng nào thì đóng góp mảng đó!**
+**Areas needing help**:
+1. 🧪 **Testing**: Write more unit tests
+2. 📝 **Documentation**: Examples, tutorials, videos
+3. 🐛 **Bug Fixes**: Check [Issues](https://github.com/vandang890615/VietStructFEM/issues)
+4. ✨ **New Features**: Pick from roadmap
+5. 🌍 **Translation**: Help with English docs
+
+---
+
+## 📊 Progress Tracking
+
+| Version | Status | Progress | Timeline |
+|---------|--------|----------|----------|
+| v0.1.0 | ✅ Done | 100% | 2026-01-02 |
+| v0.2.0 | 🚧 Planned | 0% | 2-3 weeks |
+| v0.3.0 | 📋 Todo | 0% | 4-6 weeks |
+| v0.4.0 | 📋 Todo | 0% | 2-3 months |
+| v0.5.0 | 📋 Todo | 0% | 3-6 months |
+| v1.0.0 | 🎯 Goal | 0% | 6-12 months |
+
+---
+
+## 💬 Community Feedback
+
+We listen to the community! 
+
+**Most requested features** (add yours!):
+- [ ] ?
+
+**Report bugs**: [GitHub Issues](https://github.com/vandang890615/VietStructFEM/issues)  
+**Suggest features**: [GitHub Discussions](https://github.com/vandang890615/VietStructFEM/discussions)
+
+---
+
+**Last Updated**: 2026-01-02  
+**Maintainer**: [@vandang890615](https://github.com/vandang890615)
