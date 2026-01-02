@@ -177,6 +177,10 @@ class VNStandardsLoader:
         """Get list of all available H-beam section names"""
         return list(self._data['steelDesign']['vietnameseSteelSections']['H_beams'].keys())
     
+    def get_all_h_beams(self) -> list:
+        """Alias for get_all_h_beam_sections"""
+        return self.get_all_h_beam_sections()
+    
     def get_all_box_sections(self) -> list:
         """Get list of all available box section names"""
         return list(self._data['steelDesign']['vietnameseSteelSections']['box_sections'].keys())
