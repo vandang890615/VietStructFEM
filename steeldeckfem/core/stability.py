@@ -6,7 +6,7 @@ Implements TCVN 5575-2012 specifications for steel structure design.
 import math
 from dataclasses import dataclass
 from typing import Tuple, Dict
-from src.logic.data_models import Section, Material
+from steeldeckfem.core.data_models import Section, Material
 
 
 @dataclass

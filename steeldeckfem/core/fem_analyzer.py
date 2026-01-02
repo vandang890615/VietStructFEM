@@ -211,17 +211,58 @@ class FloorSystemFEMAnalyzer:
     
     def _define_secondary_beam_members(self, layout, E, G, nu, rho):
         """Define secondary beam members"""
-        beam_spec = layout.secondary_beam_spec
-        
-        # Calculate section properties
-        A = beam_spec.area / 10000
-        Iy = beam_spec.ix / 100000000
-        Iz = Iy * 0.3
-        J = 0.1 * Iy
+        col_x = layout.column_spacing_x
+        col_y = layout.column_spacing_y
+        sec_spacing = layout.secondary_beam_spacing
+        L = layout.length
+        W = layout.width
+        num_cols_x = int(L / col_x) + 1
+        num_cols_y = int(W / col_y) + 1
         
         self.sec_beam_members = []
-        # Implementation depends on intermediate nodes
-        # Add members connecting secondary beam nodes
+        
+        if layout.main_beam_direction == 'X':
+            # Main beams run in X direction, secondary beams run in Y direction
+            # Secondary beams connect column tops in Y direction at intermediate X positions
+            num_sec = int(col_x / sec_spacing)
+            
+            for i in range(num_cols_x - 1):  # Between each pair of column lines
+                for k in range(1, num_sec + 1):  # Each secondary beam position
+                    # Connect nodes from j=0 to j=num_cols_y-1
+                    for j in range(num_cols_y - 1):
+                        node_i = f'SB{i}_{k}_{j}'
+                        node_j = f'SB{i}_{k}_{j+1}'
+                        member_name = f'SecB_{i}_{k}_{j}'
+                        
+                        self.model.add_member(
+                            member_name,
+                            node_i,
+                            node_j,
+                            'Steel',
+                            'SecBeamSection'
+                        )
+                        self.sec_beam_members.append(member_name)
+        else:
+            # Main beams run in Y direction, secondary beams run in X direction
+            # Secondary beams connect column tops in X direction at intermediate Y positions
+            num_sec = int(col_y / sec_spacing)
+            
+            for j in range(num_cols_y - 1):  # Between each pair of column lines
+                for k in range(1, num_sec + 1):  # Each secondary beam position
+                    # Connect nodes from i=0 to i=num_cols_x-1
+                    for i in range(num_cols_x - 1):
+                        node_i = f'SB{i}_{j}_{k}'
+                        node_j = f'SB{i+1}_{j}_{k}'
+                        member_name = f'SecB_{i}_{j}_{k}'
+                        
+                        self.model.add_member(
+                            member_name,
+                            node_i,
+                            node_j,
+                            'Steel',
+                            'SecBeamSection'
+                        )
+                        self.sec_beam_members.append(member_name)
     
     def _apply_supports(self, layout):
         """Apply support conditions (fixed at column bases)"""
@@ -240,11 +281,26 @@ class FloorSystemFEMAnalyzer:
         
         # Calculate tributary area for each beam
         sec_spacing = layout.secondary_beam_spacing
+        col_spacing_x = layout.column_spacing_x
+        col_spacing_y = layout.column_spacing_y
         
         # Apply distributed loads to main beams
         for member_name in self.main_beam_members:
             # Load per unit length (kN/m)
             w = total_load * sec_spacing
+            self.model.add_member_dist_load(member_name, 'Fy', -w, -w, 0, 1)
+        
+        # Apply distributed loads to secondary beams
+        if layout.main_beam_direction == 'X':
+            # Secondary beams run in Y direction
+            tributary_width = sec_spacing
+        else:
+            # Secondary beams run in X direction  
+            tributary_width = sec_spacing
+        
+        for member_name in self.sec_beam_members:
+            # Load per unit length for secondary beams (kN/m)
+            w = total_load * tributary_width
             self.model.add_member_dist_load(member_name, 'Fy', -w, -w, 0, 1)
     
     def run_analysis(self) -> Dict[str, Any]:
@@ -257,25 +313,37 @@ class FloorSystemFEMAnalyzer:
         if self.model is None:
             raise ValueError("Model not built. Call build_fem_model() first.")
         
-        # Analyze the model
-        self.model.analyze(check_statics=True)
-        
-        # Extract results
-        self.results = {
-            'deflections': self._extract_deflections(),
-            'reactions': self._extract_reactions(),
-            'member_forces': self._extract_member_forces(),
-            'max_deflection': self._find_max_deflection(),
-            'status': 'Analysis Complete'
-        }
+        try:
+            # Analyze the model
+            self.model.analyze(check_statics=True)
+            
+            # Extract results
+            self.results = {
+                'deflections': self._extract_deflections(),
+                'reactions': self._extract_reactions(),
+                'member_forces': self._extract_member_forces(),
+                'max_deflection': self._find_max_deflection(),
+                'status': 'Analysis Complete'
+            }
+        except Exception as e:
+            # Analysis failed - return partial results with error info
+            print(f"⚠️  FEM Analysis encountered issues: {e}")
+            self.results = {
+                'deflections': {},
+                'reactions': {},
+                'member_forces': {},
+                'max_deflection': {'value': 0, 'node': 'N/A', 'limit': 'N/A'},
+                'status': f'Analysis failed: {str(e)}',
+                'error': str(e)
+            }
         
         return self.results
     
     def _extract_deflections(self) -> Dict:
         """Extract nodal deflections"""
         deflections = {}
-        for node_name in self.model.Nodes:
-            node = self.model.Nodes[node_name]
+        for node_name in self.model.nodes:
+            node = self.model.nodes[node_name]
             deflections[node_name] = {
                 'dx': node.DX['Combo 1'],
                 'dy': node.DY['Combo 1'],
@@ -288,7 +356,7 @@ class FloorSystemFEMAnalyzer:
         reactions = {}
         for (i, j), nodes in self.column_nodes.items():
             base_node = nodes['base']
-            node = self.model.Nodes[base_node]
+            node = self.model.nodes[base_node]
             reactions[base_node] = {
                 'Fx': node.RxnFX['Combo 1'],
                 'Fy': node.RxnFY['Combo 1'],
@@ -302,7 +370,7 @@ class FloorSystemFEMAnalyzer:
         
         # Main beams
         for member_name in self.main_beam_members:
-            member = self.model.Members[member_name]
+            member = self.model.members[member_name]
             L = member.L()
             
             # Sample points along member
@@ -323,6 +391,14 @@ class FloorSystemFEMAnalyzer:
         max_def = 0
         max_node = None
         
+        # Safety check
+        if 'deflections' not in self.results or not self.results['deflections']:
+            return {
+                'value': 0,
+                'node': 'N/A',
+                'limit': 'N/A'
+            }
+        
         for node_name, defl in self.results['deflections'].items():
             total_def = abs(defl['dy'])  # Vertical deflection
             if total_def > max_def:
@@ -331,7 +407,7 @@ class FloorSystemFEMAnalyzer:
         
         return {
             'value': max_def * 1000,  # Convert to mm
-            'node': max_node,
+            'node': max_node if max_node else 'N/A',
             'limit': 'L/360'  # Typical limit
         }
     
@@ -385,11 +461,11 @@ class FloorSystemFEMAnalyzer:
         </tr>
         <tr>
             <td>Số nút (nodes)</td>
-            <td>{len(self.model.Nodes)}</td>
+            <td>{len(self.model.nodes)}</td>
         </tr>
         <tr>
             <td>Số thanh (members)</td>
-            <td>{len(self.model.Members)}</td>
+            <td>{len(self.model.members)}</td>
         </tr>
         </table>
         </div>

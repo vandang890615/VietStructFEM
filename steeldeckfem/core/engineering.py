@@ -2,7 +2,7 @@
 import math
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
-from src.logic.data_models import CalculationInput, WindParams, PurlinParams, GeometryParams
+from steeldeckfem.core.data_models import CalculationInput, WindParams, PurlinParams, GeometryParams
 
 # PURLIN DATABASE (From Excel Sheet: Xago)
 # Format: Name -> {h, b1, b2, t, area, weight, Ix, Iy, Wx, Wy}

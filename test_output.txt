@@ -1,0 +1,35 @@
+C:\Python314\Lib\site-packages\Pynite\FEModel3D.py:2497: MatrixRankWarning: Matrix is exactly singular
+  Delta_D1 = spsolve(K11.tocsr(), np.subtract(np.subtract(Delta_P1, Delta_FER1), K12.tocsr() @ Delta_D2))
+============================================================
+Steel Deck FEM - Basic Example
+============================================================
+
+V∙ng gi≤: I - Wo = 95 kg/m2
+Live load: 400 kg/m2
+Dead load: 30 kg/m2
+
+Building FEM model...
+Running FEM analysis...
++----------------+
+| Statics Check: |
++----------------+
+
++------------------+--------+--------+--------+--------+--------+--------+--------+---------+--------+---------+-----------+---------+
+| Load Combination | Sum FX | Sum RX | Sum FY | Sum RY | Sum FZ | Sum RZ | Sum MX | Sum RMX | Sum MY | Sum RMY |   Sum MZ  | Sum RMZ |
++------------------+--------+--------+--------+--------+--------+--------+--------+---------+--------+---------+-----------+---------+
+|     Combo 1      |   0    |  nan   |  -174  |  nan   |   0    |  nan   |  696   |   nan   |   0    |   nan   | -1.39e+03 |   nan   |
++------------------+--------+--------+--------+--------+--------+--------+--------+---------+--------+---------+-----------+---------+
+
+Traceback (most recent call last):
+  File "D:\VietStructFEM\examples\basic_floor_system.py", line 116, in <module>
+    main()
+    ~~~~^^
+  File "D:\VietStructFEM\examples\basic_floor_system.py", line 80, in main
+    results = analyzer.run_analysis()
+  File "d:\VietStructFEM\steeldeckfem\core\fem_analyzer.py", line 306, in run_analysis
+    'deflections': self._extract_deflections(),
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\VietStructFEM\steeldeckfem\core\fem_analyzer.py", line 318, in _extract_deflections
+    for node_name in self.model.Nodes:
+                     ^^^^^^^^^^^^^^^^
+AttributeError: 'FEModel3D' object has no attribute 'Nodes'. Did you mean: 'nodes'?

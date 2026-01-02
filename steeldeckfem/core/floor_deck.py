@@ -13,7 +13,7 @@ Features:
 import math
 from dataclasses import dataclass
 from typing import Dict, List, Tuple, Optional
-from src.logic.data_models import Section, Material
+from steeldeckfem.core.data_models import Section, Material
 
 
 # STEEL DECK PROFILE DATABASE

@@ -77,7 +77,7 @@ def main():
     
     # 6. Run analysis
     print("Running FEM analysis...")
-    results = analyzer.run_analysis(layout)
+    results = analyzer.run_analysis()
     
     # 7. Display results
     print("\n" + "=" * 60)
