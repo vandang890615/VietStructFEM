@@ -1,0 +1,9 @@
+# Steel Deck FEM - Core dependencies
+PyNiteFEA>=2.0.2
+plotly>=6.5.0
+numpy>=2.4.0
+scipy>=1.16.0
+matplotlib>=3.10.0
+PyQt5>=5.15.11
+PyQtWebEngine>=5.15.7
+prettytable>=3.17.0
