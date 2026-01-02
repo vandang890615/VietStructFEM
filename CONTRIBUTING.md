@@ -15,7 +15,7 @@
 
 ```bash
 # Fork trên GitHub, sau đó clone
-git clone https://github.com/YOUR_USERNAME/SteelDeckFEM.git
+git clone https://github.com/vandang890615/SteelDeckFEM.git
 cd SteelDeckFEM
 ```
 

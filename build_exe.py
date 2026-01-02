@@ -14,7 +14,7 @@ print("🚀 Starting build process for VietStruct FEM...")
 args = [
     'steeldeckfem/__main__.py',           # Entry point
     '--name=VietStructFEM',               # Name of the executable
-    '--onefile',                          # Create a single executable file
+    '--onedir',                           # Create a directory (FASTER startup)
     '--windowed',                         # No console window (for GUI apps)
     '--icon=assets/icon.ico',             # Icon (if you have one, otherwise remove this line)
     '--add-data=steeldeckfem;steeldeckfem', # Include package data
@@ -31,4 +31,5 @@ if not os.path.exists('assets/icon.ico'):
 PyInstaller.__main__.run(args)
 
 print("\n✅ Build complete!")
-print("📂 Executable is located in the 'dist' folder: dist/VietStructFEM.exe")
+print("📂 Executable is located in: dist/VietStructFEM/VietStructFEM.exe")
+print("⚡ Tip: This 'onedir' version starts much faster than 'onefile'.")
