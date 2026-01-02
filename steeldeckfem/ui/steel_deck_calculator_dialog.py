@@ -26,7 +26,7 @@ import numpy as np
 
 # Wind zones - always needed
 try:
-    from steeldeckfem.core.wind_zones import WIND_ZONES, CITY_WIND_ZONES, get_wind_pressure, get_all_locations
+    from utils.wind_zones import WIND_ZONES, CITY_WIND_ZONES, get_wind_pressure, get_all_locations
 except ImportError:
     # Fallback if wind_zones not found
     WIND_ZONES = {"Vùng I - Nội địa": {"zone": "I", "Wo": 95, "description": "Default", "cities": []}}
@@ -36,8 +36,8 @@ except ImportError:
 
 # Advanced analysis features (optional)
 try:
-    from steeldeckfem.core.fem_analyzer import FloorSystemFEMAnalyzer
-    from steeldeckfem.core.plotly_charts import StructuralDiagramCreator
+    from utils.fem_analyzer import FloorSystemFEMAnalyzer
+    from utils.plotly_charts import StructuralDiagramCreator
     HAS_ADVANCED_FEATURES = True
     print("✓ Advanced features loaded successfully!")
 except ImportError as e:
