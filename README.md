@@ -223,3 +223,56 @@ For issues, questions, or suggestions:
 ---
 
 **🎉 VietStructFEM - Complete Structural Engineering for Vietnam 🎉**
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### You are free to:
+- ✅ Use commercial
+
+ly
+- ✅ Modify
+- ✅ Distribute
+- ✅ Private use
+
+## 🤝 Contributing
+
+We welcome contributions from the Vietnamese engineering community and beyond!
+
+### How to Contribute
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+### Areas We Need Help
+- 🔢 Adding more Vietnamese steel sections to database
+- 📊 Enhancing reporting templates
+- 🏗️ Completing PEB/Zamil module
+- 📚 Writing documentation and tutorials
+- 🌐 Translating interface to English
+- 🧪 Adding automated tests
+
+## 👥 Authors & Contributors
+
+- **Van Dang** - *Initial work* - [@vandang890615](https://github.com/vandang890615)
+
+See also the list of contributors who participated in this project.
+
+## 📞 Support
+
+For issues, questions, or suggestions:
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/vandang890615/VietStructFEM/issues)
+- 💡 **Feature Requests**: [GitHub Issues](https://github.com/vandang890615/VietStructFEM/issues)
+- 📧 **Email**: vandang890615@gmail.com
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/vandang890615/VietStructFEM/discussions)
+
+---
+
+**Made with ❤️ for Vietnamese Engineers**
